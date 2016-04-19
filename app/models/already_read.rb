@@ -15,6 +15,8 @@ class AlreadyRead < ActiveRecord::Base
 
   # "活動"で参照するための閲覧スコープ
   scope :visible, lambda {|*args|
+    return [] unless Setting.plugin_redmine_already_read[:report_activity] == 'yes'
+
     joins(:issue => :project).
     where(Issue.visible_condition(args.shift || User.current, *args))
   }

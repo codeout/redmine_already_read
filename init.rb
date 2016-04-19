@@ -14,4 +14,9 @@ Redmine::Plugin.register :redmine_already_read do
 
   # "活動"にチケットイベントとして登録
   activity_provider :issues, :class_name => 'AlreadyRead'
+
+  settings default: {
+             'report_activity' => 'yes'
+           },
+           partial: 'settings/redmine_already_read_settings'
 end

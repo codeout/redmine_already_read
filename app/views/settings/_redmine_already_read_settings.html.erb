@@ -1,0 +1,7 @@
+<p>
+	<label for="settings_report_activity"><%= l(:show_in_activity) %>: </label>
+	<select id="settings_report_activity" value="<%= settings['report_activity'] %>" name="settings[report_activity]">
+		<option value="yes"><%= l(:general_text_yes) %></option>
+		<option value="no" <%= settings['report_activity'] != 'yes' ? %q(selected="selected") : '' %>><%= l(:general_text_no) %></option>
+	</select>
+</p>
